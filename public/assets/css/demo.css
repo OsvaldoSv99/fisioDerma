@@ -16,7 +16,7 @@
 .app-brand-text.demo {
   font-size: 1.75rem;
   letter-spacing: -0.5px;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 /* ! For .layout-navbar-fixed added fix padding top tpo .layout-page */
@@ -104,4 +104,9 @@
 .layout-demo-info {
   text-align: center;
   margin-top: 1rem;
+}
+
+.boton_estilo{
+    background-color: #3dd9bc;
+    color: #fff;
 }
