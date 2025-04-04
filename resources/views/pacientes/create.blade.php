@@ -7,6 +7,8 @@
             <div class="card">
                 <div class="card-header">
                     <h2>Nuevo Paciente</h2>
+                </div>
+                <div class="card-body">
                     <div class="container">
                         <form action="{{route('guardar_paciente')}}" method="post" class="needs-validation" id="formulario" novalidate>
                             @csrf
@@ -78,9 +80,6 @@
                             <button type="submit" class="btn boton_estilo">Guardar</button>
                         </form>
                     </div>
-                </div>
-                <div class="card-body">
-
                 </div>
             </div>
         </div>

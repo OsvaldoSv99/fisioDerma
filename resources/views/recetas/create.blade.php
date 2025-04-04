@@ -8,6 +8,8 @@
                 <div class="card-header">
                     <h2>Nueva Receta</h2>
                     <h5>Paciente: {{$paciente->nombre .' '. $paciente->apellido_paterno .' '. $paciente->apellido_materno}}</h5>
+                </div>
+                <div class="card-body">
                     <div class="container">
                         <form action="{{route('guardar_paciente')}}" method="post" class="needs-validation" id="formulario" novalidate>
                             @csrf
@@ -31,9 +33,6 @@
                             <button type="submit" class="btn boton_estilo">Guardar</button>
                         </form>
                     </div>
-                </div>
-                <div class="card-body">
-
                 </div>
             </div>
         </div>

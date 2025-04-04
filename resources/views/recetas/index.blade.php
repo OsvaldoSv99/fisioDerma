@@ -13,7 +13,6 @@
                     </a>
                 </div>
                 <div class="card-body">
-
                     <table id="tabla" class="table table-striped">
                         <thead>
                             <th>Diagnostico</th>

@@ -35,8 +35,8 @@
                                     <td>{{$p->contacto_telefono}}</td>
                                     <td>{{$p->activo == 1? 'Activo' : 'Inactivo'}}</td>
                                     <td>
-                                        <a href="{{url('editar_paciente/'.$p->id_paciente)}}" class="btn boton_estilo">Editar</a><br>
-                                        <a href="{{url('recetas/'.$p->id_paciente)}}" class="btn boton_estilo mt-3">Recetas</a>
+                                        <a href="{{url('editar_paciente/'.$p->id_paciente)}}" class="btn btn-sm boton_estilo">Editar</a>
+                                        <a href="{{url('recetas/'.$p->id_paciente)}}" class="btn btn-sm boton_estilo mt-3">Recetas</a>
                                     </td>
                                 </tr>
                             @endforeach
