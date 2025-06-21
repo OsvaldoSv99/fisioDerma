@@ -27,6 +27,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/dataTables.rowReorder.js"></script>
     <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/rowReorder.bootstrap5.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -144,15 +145,6 @@
             <ul class="navbar-nav flex-row align-items-center ms-auto">
               <!-- Place this tag where you want the button to render. -->
               <li class="nav-item lh-1 me-3">
-                <a
-                  class="github-button"
-                  href="https://github.com/themeselection/sneat-html-admin-template-free"
-                  data-icon="octicon-star"
-                  data-size="large"
-                  data-show-count="true"
-                  aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
-                  >Star</a
-                >
               </li>
               <!-- User -->
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -233,23 +225,37 @@
   </body>
   {{-- Datatable --}}
 <script src="{{asset('js/datatables.js')}}"></script>
-  @if(session('exito'))
-      <script>
-        Swal.fire({
-          title: 'Paciente Registrado',
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
-        })
-      </script>
-  @endif
-  @if(session('actualizar'))
-      <script>
-        Swal.fire({
-          title: 'Paciente Actualizado',
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
-        })
-      </script>
-  @endif
+  @if (Session::get('alert'))
+  <script>
+      Swal.fire({
+        title: "{{Session::get('title')}}",
+        icon: "{{Session::get('icon')}}",
+        text: "{{Session::get('alert')}}",
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: "#3dd9bc",
+        iconColor: "#3dd9bc"
+      })
+  </script>
+@endif
   <script src="{{asset('js/novalidate.js')}}"></script>
+      <!-- Scripts include summernote css/js   -->
+      <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+      <script>
+          $(document).ready(function() {
+              $('.summernote').summernote({
+                  toolbar: [
+                      ['style', ['bold', 'italic', 'underline', 'clear']],
+                      ['color', ['color']],
+                      ['para', ['ul', 'ol', 'paragraph']],
+                  ],
+              });
+              $('#summernote').summernote({
+                  toolbar: [
+                      ['style', ['bold', 'italic', 'underline', 'clear']],
+                      ['color', ['color']],
+                      ['para', ['ul', 'ol', 'paragraph']],
+                  ],
+              });
+          });
+      </script>
 </html>

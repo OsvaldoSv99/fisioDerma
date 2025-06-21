@@ -23,15 +23,15 @@
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Diagnóstico</label>
-                                <input type="text" name="diagnostico" class="form-control" value="" required>
+                                <input type="text" name="diagnostico" class="form-control" value="{{$recetas->diagnostico}}" required>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Indicaciones</label>
-                                <textarea class="form-control summernote" id="exampleFormControlTextarea1" name="indicaciones"></textarea>
+                                <textarea class="form-control summernote" id="exampleFormControlTextarea1" rows="3" name="indicaciones">{{$recetas->indicaciones}}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Próxima Cita</label>
-                                <input type="date" name="proxima_cita" class="form-control" required value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
+                                <input type="date" name="proxima_cita" class="form-control" required value="{{$recetas->proxima_cita}}">
                             </div>
                             <button type="submit" class="btn boton_estilo">Guardar</button>
                         </form>

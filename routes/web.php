@@ -28,6 +28,9 @@ Route::group(['middleware' => ['auth']], function() {
         // Recetas
         Route::get('recetas/{id}',[RecetasController::class,'show'])->name("recetas/{id}");
         Route::get('nueva_receta/{id}',[RecetasController::class,'create'])->name("nueva_receta/{id}");
+        Route::post('guardar_receta/{id}',[RecetasController::class,'store'])->name("guardar_receta/{id}");
+        Route::get('editar_receta/{id}',[RecetasController::class,'edit'])->name("editar_receta/{id}");
+        Route::get('pdf_receta/{id}',[RecetasController::class,'pdf'])->name("pdf_receta");
 });
 
 

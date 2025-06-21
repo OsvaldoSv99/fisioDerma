@@ -25,6 +25,11 @@
                                 <input type="text" name="apellido_materno" class="form-control" required>
                             </div>
                             <div class="mb-3">
+                                <label for="" class="form-label">Sexo</label><br>
+                                <input type="radio" required name="sexo" id="" value="0" class="form-check-input" checked> Femenino
+                                <input type="radio" required name="sexo" id="" value="1" class="form-check-input"> Masculino
+                            </div>
+                            <div class="mb-3">
                                 <label for="" class="form-label">Fecha de Nacimiento</label>
                                 <input type="date" name="fecha_nacimiento" class="form-control" required>
                             </div>

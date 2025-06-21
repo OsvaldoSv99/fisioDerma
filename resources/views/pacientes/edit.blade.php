@@ -27,6 +27,11 @@
                                 <input type="text" name="apellido_materno" class="form-control" value="{{$paciente->apellido_materno}}" required>
                             </div>
                             <div class="mb-3">
+                                <label for="" class="form-label">Sexo</label><br>
+                                <input type="radio" required name="sexo" id="" value="0" class="form-check-input" {{$paciente->sexo == 0 ? 'checked' : ''}}> Femenino
+                                <input type="radio" required name="sexo" id="" value="1" class="form-check-input" {{$paciente->sexo == 1 ? 'checked' : ''}}> Masculino
+                            </div>
+                            <div class="mb-3">
                                 <label for="" class="form-label">Fecha de Nacimiento</label>
                                 <input type="date" name="fecha_nacimiento" class="form-control" value="{{$paciente->fecha_nacimiento}}" required>
                             </div>
