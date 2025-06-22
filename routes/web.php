@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('guardar_receta/{id}',[RecetasController::class,'store'])->name("guardar_receta/{id}");
         Route::get('editar_receta/{id}',[RecetasController::class,'edit'])->name("editar_receta/{id}");
         Route::get('pdf_receta/{id}',[RecetasController::class,'pdf'])->name("pdf_receta");
+        Route::post('enviar_receta/{id}',[RecetasController::class,'enviar_receta'])->name("enviar_receta/{id}");
 });
 
 

@@ -6,6 +6,7 @@ use App\Models\Recetas;
 use App\Models\Pacientes;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
 use Datetime;
 use Carbon\Carbon;
 
@@ -76,7 +77,6 @@ class RecetasController extends Controller
     }
 
     public function pdf ($id){
-
         $receta = Recetas::find($id);
         $paciente = Pacientes::find($receta->id_paciente);
         $f_nacimiento = new DateTime($paciente->fecha_nacimiento);
@@ -85,5 +85,40 @@ class RecetasController extends Controller
         $edad = $edad->y;
         $pdf = Pdf::loadView('recetas.pdf.receta', compact("receta", "paciente", "edad"));
         return $pdf->stream('invoice.pdf');
+    }
+
+    public function enviar_receta($id, Request $request){
+        try {
+          $receta = Recetas::find($id);
+         $paciente = Pacientes::find($receta->id_paciente);
+        $f_nacimiento = new DateTime($paciente->fecha_nacimiento);
+        $hoy = new DateTime();
+        $edad = $hoy->diff($f_nacimiento);
+        $edad = $edad->y;
+        $pdf = Pdf::loadView('recetas.pdf.receta', compact("receta", "paciente", "edad"));
+        $pdf = $pdf->output(); // Solo lo mantiene en memoria
+
+        $subject = "RECETA FISIODERMA";
+        $for = $request->email;
+        $data["asunto"] = $subject;
+        $data["date"] = $receta->fecha;
+        $data["pdf"] = $pdf;
+        Mail::send('recetas.correo', $data, function ($msj) use ($subject, $for, $pdf) {
+            $msj->attachData($pdf, 'documento.pdf',  ['mime' => 'application/pdf']);
+            $msj->subject($subject);
+            $msj->to($for);
+        });
+          return redirect('recetas/'.$id)
+        ->with('title','Receta Enviada')
+        ->with('alert','Receta enviada al correo '.$for)
+        ->with('icon','success');
+        } catch (\Throwable $th) {
+              return redirect('recetas/'.$id)
+                ->with('title','Receta No Enviada')
+                ->with('alert','Error al enviar la receta al correo mencionado')
+                ->with('icon','success');
+        }
+
+
     }
 }
