@@ -67,10 +67,15 @@
  <div style="width: 100%; min-height: 15%; padding-left:50px; padding-right:50px; font-size:14px">
         {!! $receta->indicaciones !!}
  </div>
- <div style="float: right; width:100vh">
+ <div style="float: right; width:100vh;">
     <table style="width: 240px">
         <tr>
-            <td style="border-bottom: 1px solid black; text-align:center; font-weight: bold">{{auth()->user()->name}}</td>
+            <td style="border-bottom: 1px solid black; text-align:center; font-weight: bold">
+                {{auth()->user()->name}}
+                <br>
+                Ced. Prof. {{auth()->user()->cedula}}
+
+            </td>
 
         </tr>
         <tr>
@@ -78,10 +83,13 @@
         </tr>
     </table>
  </div>
-  <div style="float: left; width:100vh">
-    <table style="width: 240px">
+  <div style="float: left; width:100vh;">
+    <table style="width: 240px;">
         <tr>
-            <td style="border-bottom: 1px solid black; text-align:center; font-weight: bold">{{\Carbon\Carbon::parse($receta->proxima_cita)->format('d-m-Y')}}</td>
+            <td style="border-bottom: 1px solid black; text-align:center; font-weight: bold">
+                <br>
+                {{\Carbon\Carbon::parse($receta->proxima_cita)->format('d-m-Y')}}
+            </td>
 
         </tr>
         <tr>
@@ -89,7 +97,7 @@
         </tr>
     </table>
  </div>
- <br><br><br>
+ <br><br><br><br>
  <hr style=" width: 100%; height: 2px; background-color: #3dd9bc; border:#3dd9bc 1px solid; margin-top: 0; margin-bottom: 0">
  <div style="width: 100%; background-color: #3d7dd9;">
     <p style="color: white; font-size:10px; text-align:center;">Plaza Prisma: Consultorio 10. Prol 5 de mayo 742, Col. Comisión Federal de Electricidad, Del. San Sebastián, Toluca de Lerdo, Estado de México, Estado de Mécido. C.P: 50150</p>
