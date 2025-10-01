@@ -25,7 +25,7 @@
                                         <strong>Permisos:</strong>
                                         <br/>
                                         @foreach($permission as $value)
-                                            <label><input type="checkbox" name="permission[{{$value->id}}]" value="{{$value->id}}" class="name" {{ in_array($value->id, $rolePermissions) ? 'checked' : ''}}>
+                                            <label><input type="checkbox" name="permission[{{$value->id}}]" value="{{$value->id}}" class="name form-check-input" {{ in_array($value->id, $rolePermissions) ? 'checked' : ''}}>
                                             {{ $value->name }}</label>
                                         <br/>
                                         @endforeach
