@@ -57,6 +57,7 @@ class PacientesController extends Controller
             $g->nombre=$request->nombre_paciente;
             $g->apellido_paterno=$request->apellido_paterno;
             $g->apellido_materno=$request->apellido_materno;
+            $g->correo=$request->correo;
             $g->sexo=$request->sexo;
             $g->fecha_nacimiento=$request->fecha_nacimiento;
             $g->curp=$request->curp;
@@ -106,6 +107,7 @@ class PacientesController extends Controller
             $g->apellido_paterno=$request->apellido_paterno;
             $g->apellido_materno=$request->apellido_materno;
             $g->fecha_nacimiento=$request->fecha_nacimiento;
+            $g->correo=$request->correo;
             $g->sexo=$request->sexo;
             $g->curp=$request->curp;
             $g->domicilio=$request->domicilio;

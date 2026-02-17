@@ -25,6 +25,10 @@
                                 <input type="text" name="apellido_materno" class="form-control" required>
                             </div>
                             <div class="mb-3">
+                                <label for="" class="form-label">Correo Electrónico</label>
+                                <input type="email" name="correo" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
                                 <label for="" class="form-label">Sexo</label><br>
                                 <input type="radio" required name="sexo" id="" value="0" class="form-check-input" checked> Femenino
                                 <input type="radio" required name="sexo" id="" value="1" class="form-check-input"> Masculino
@@ -78,6 +82,7 @@
                                 <label for="" class="form-label">Nombre Completo</label>
                                 <input type="text" name="contacto_nombre" class="form-control" required>
                             </div>
+
                             <div class="mb-3">
                                 <label for="" class="form-label">Número de Telefono</label>
                                 <input type="number" name="contacto_telefono" class="form-control" required>
